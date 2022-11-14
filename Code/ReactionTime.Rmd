@@ -1,0 +1,220 @@
+---
+  title: "Thesis"
+author: "Owen Fiore"
+date: "10/20/2022"
+output: pdf_document
+---
+  
+Reading in the Data
+```{r}
+library(readxl)
+times <- read_excel("C:/Users/ofior/Documents/Thesis/Data/ThesisData.xlsx")
+View(times)
+colnames(times) <- c("Year", "Type", "Time", "RxnTime", "Gender")
+```
+
+
+t test comparing 2019 and 2022
+```{r}
+t.test(times$RxnTime[times$Year==2019],times$RxnTime[times$Year==2022])
+```
+
+
+Creates a Boxplot comparing 2019 and 2022
+```{r}
+boxplot(times$RxnTime[times$Year==2019],times$RxnTime[times$Year==2022])
+```
+
+Analysis of Variance, looking only at Year
+```{r}
+model <- aov(RxnTime ~ Year, data = times)
+summary(model)
+```
+
+Creates a new data set of just finals and looks at the data from that
+```{r}
+finals <- subset(times, Type == "F")
+boxplot(RxnTime ~ Year, data = finals, xlab = "Years")
+
+```
+
+
+
+```{r}
+library(dplyr)
+finals.aov <- aov(RxnTime ~ as.factor(Year), data = finals)
+summary(finals.aov)
+tuk.final <- TukeyHSD(finals.aov, conf.level = .95)
+tkf <- as.data.frame(tuk.final[1])
+tkf %>%filter(as.factor.Year..p.adj < 0.05)
+#plot(tuk.final)
+```
+
+
+```{r}
+residuals <- resid(finals.aov)
+plot(finals$RxnTime, residuals, xlab="RxnTime", ylab="Residuals")
+abline(0,0)
+```
+
+```{r}
+library(lme4)
+finals.lme <- lmer(RxnTime ~ (1|Year), data = finals)
+summary(finals.lme)
+qqnorm(resid(finals.lme))
+hist(resid(finals.lme))
+qqnorm(ranef(finals.lme))
+pnorm(0.1, mean = .148883, sd = sqrt(8.648*10^(-5)+3.719*10^(-4)))
+```
+```{r}
+library(lme4)
+semi <- subset(times, Type == "S")
+finals.lme <- lmer(RxnTime ~ (1|Year), data = semi)
+summary(finals.lme)
+qqnorm(resid(finals.lme))
+hist(resid(finals.lme))
+qqnorm(ranef(finals.lme))
+```
+```{r}
+library(lme4)
+heat <- subset(times, Type == "H")
+finals.lme <- lmer(RxnTime ~ (1|Year), data = heat)
+summary(finals.lme)
+qqnorm(resid(finals.lme))
+hist(resid(finals.lme))
+qqnorm(ranef(finals.lme))
+str(ranef(finals.lme))
+hist(ranef(finals.lme)$Year[,1])
+qqnorm(ranef(finals.lme)$Year[,1])
+qqline(ranef(finals.lme)$Year[,1])
+```
+```{r}
+pnorm(0.1, mean = .157750, sd = sqrt(.0001228+0.0005937))
+qnorm(0.01, mean = .157750, sd = sqrt(.0001228+0.0005937))
+```
+
+```{r}
+my_fit <- lm(RxnTime ~ 1 , data = finals)
+summary(my_fit)
+```
+
+
+```{r}
+anova(finals.lme, my_fit)
+```
+
+```{r}
+old <- subset(times, Year < 2020)
+old.lme <- lmer(RxnTime ~ (1|Year), data = old)
+summary(old.lme)
+old_fit <- lm(RxnTime ~ 1 , data = old)
+anova(old.lme, old_fit)
+
+
+```
+
+```{r}
+model_coefs <- coef(old.lme)$Year
+
+model_coefs
+```
+
+
+Plotting LME
+```{r}
+library(ggplot2)
+model_coef_plot <- ggplot(data = old, 
+                          mapping = aes(x = Time, 
+                                        y = RxnTime, 
+                                        colour = Year)
+) +
+  scale_y_continuous(limits = c(180, 1020)) +
+  scale_x_continuous(breaks = seq(1:10) - 1) +
+  theme(legend.position = "top")
+
+model_coef_plot
+```
+
+
+
+Creates a new data set of just semifinals and looks at the data from that
+```{r}
+semi <- subset(times, Type == "S")
+
+semi.fit <- lm(RxnTime ~ Year, data = semi)
+summary(semi.fit)
+```
+
+```{r}
+
+boxplot(RxnTime ~ Year, data = semi, xlab = "Years")
+```
+
+```{r}
+
+semi.aov <- aov(RxnTime ~ as.factor(Year), data = semi)
+summary(semi.aov)
+tuk.semi <- TukeyHSD(semi.aov, conf.level = .95)
+tks <- as.data.frame(tuk.semi[1])
+tks %>%filter(as.factor.Year..p.adj < 0.05)
+
+```
+```{r}
+residuals.semi <- resid(semi.aov)
+plot(semi$RxnTime, residuals.semi, xlab="RxnTime", ylab="Residuals")
+abline(0,0)
+## Off by 1 error
+```
+
+Creates a new data set of just heats and looks at the data from that
+```{r}
+heat <- subset(times, Type == "H")
+
+heat.fit <- lm(RxnTime ~ Year, data = heat)
+summary(heat.fit)
+```
+
+```{r}
+
+boxplot(RxnTime ~ Year, data = heat, xlab = "Years")
+```
+
+```{r}
+
+heat.aov <- aov(RxnTime ~ as.factor(Year), data = heat)
+summary(heat.aov)
+tuk.heat <- TukeyHSD(heat.aov, conf.level = .95)
+tkh <- as.data.frame(tuk.heat[1])
+tkh %>%filter(as.factor.Year..p.adj < 0.05)
+
+```
+
+
+t test comparing men and women times in 2022
+```{r}
+men <- subset(times, Gender == "M")
+women <- subset(times, Gender == "F")
+t.test(men$RxnTime, women$RxnTime)
+
+```
+
+Scatterplot of Data
+```{r}
+plot(finals$Year, finals$RxnTime)
+```
+```{r}
+ninetynine <- times$RxnTime[times$Year == "1999"]
+one <- times$RxnTime[times$Year == "2001"]
+three <- times$RxnTime[times$Year == "2003"]
+five <- times$RxnTime[times$Year == "2005"]
+seven <- times$RxnTime[times$Year == "2007"]
+five <- times$RxnTime[times$Year == "2005"]
+thirteen <- times$RxnTime[times$Year == "2013"]
+two <- times$RxnTime[times$Year == "2022"]
+```
+
+```{r}
+plot(times$RxnTime, times$Time)
+plot(times$RxnTime[times$Time < 15], times$Time[times$Time < 15], xlab = "RxnTime", ylab = "Total Time")
+```
+
