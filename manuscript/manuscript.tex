@@ -8,7 +8,7 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks = true, linkcolor = blue, citecolor=blue, urlcolor = blue}
 \usepackage{natbib}
-
+\usepackage{float}
 \usepackage{setspace}
 
 \usepackage[pagewise]{lineno}
@@ -122,24 +122,41 @@ Championships, "H" denotes the heats/preliminary rounds of the 110 meter hurdles
 did not register a reaction time.  All numbers listed in the table are the reaction
 time for the respective athletes in seconds.
 
-\begin{figure}
-    \begin{center}
-      \begin{tabular}{||c | c c c | c c c||} 
-       \hline
-       Athlete & USA H & USA S & USA F & World H & World S & World F \\ [0.5ex] 
-       \hline\hline
-       Devon Allen & 0.201 & 0.153 & 0.160 & 0.123 & 0.101 & 0.099 \\ 
-       \hline
-       Trey Cunningham & 0.186 & 0.185 & 0.182 & 0.115 & 0.120 & 0.109 \\
-       \hline
-       Grant Holloway & 0.192 & 0.190 & N/A & 0.147 & 0.128 & 0.124 \\
-       \hline
-       Daniel Roberts & 0.181 & 0.200 & 0.183 & 0.179 & N/A & N/A \\ [0.5ex]
-       \hline
-      \end{tabular}
-      \end{center}
+% \begin{figure}[H]
+%     \begin{center}
+%       \begin{tabular}{||c | c c c | c c c||}[H] 
+%        \hline
+%        Athlete & USA H & USA S & USA F & World H & World S & World F \\ [0.5ex] 
+%        \hline\hline
+%        Devon Allen & 0.201 & 0.153 & 0.160 & 0.123 & 0.101 & 0.099 \\ 
+%        \hline
+%        Trey Cunningham & 0.186 & 0.185 & 0.182 & 0.115 & 0.120 & 0.109 \\
+%        \hline
+%        Grant Holloway & 0.192 & 0.190 & N/A & 0.147 & 0.128 & 0.124 \\
+%        \hline
+%        Daniel Roberts & 0.181 & 0.200 & 0.183 & 0.179 & N/A & N/A \\ [0.5ex]
+%        \hline
+%       \end{tabular}
+%       \end{center}
   
-\end{figure}
+% \end{figure}
+
+\begin{center}
+\begin{tabular}{||c | c c c | c c c||} 
+ \hline
+ Athlete & USA H & USA S & USA F & World H & World S & World F \\ [0.5ex] 
+ \hline\hline
+ Devon Allen & 0.201 & 0.153 & 0.160 & 0.123 & 0.101 & 0.099 \\ 
+ \hline
+ Trey Cunningham & 0.186 & 0.185 & 0.182 & 0.115 & 0.120 & 0.109 \\
+ \hline
+ Grant Holloway & 0.192 & 0.190 & N/A & 0.147 & 0.128 & 0.124 \\
+ \hline
+ Daniel Roberts & 0.181 & 0.200 & 0.183 & 0.179 & N/A & N/A \\ [0.5ex]
+ \hline
+\end{tabular}
+\end{center}
+
 
 Additionally it is worth noting that in the semi-finals of the World Track and
 Field Championships; Allen's reaction time was 0.101 which is only 0.001 above
