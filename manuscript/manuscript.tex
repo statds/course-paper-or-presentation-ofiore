@@ -77,7 +77,7 @@
 
 \bigskip
 \noindent\sc{Keywords}:
-Reaction Time, Seiko, 2022 World Track and Field Championships, Devon Allen
+Devon Allen, Reaction Time, Seiko, 2022 World Track and Field Championships 
 
 \end{abstract}
 
@@ -86,41 +86,29 @@ Reaction Time, Seiko, 2022 World Track and Field Championships, Devon Allen
 \section{Introduction}
 \label{sec:intro}
 
+Other scholarly papers have discussed track and field reaction times but not in the
+context of whether the minimum reaction time barrier is too low or whether or not timing
+systems were accurate.  Outside of the blog posts from LetsRun.com, there have not been
+any published papers regarding Devon Allen's disqualification in particular.  This is not
+neccessarily suprising given that the World Track and Field Championships occurred only four months ago.
 
 The contribution of this paper is to question whether or not Seiko's timing data
 was accurate and thus if Devon Allen was disqualified more so because of faulty
 equipment rather than reacting illegally fast.  There is little at this point
 that could be done to rectify any potential mis-qualification other than to try
-to prevent it from happening again. Devon Allen's disqulification needs to be
-addressed because this is a problem that could continue to re-appear.  If athletes
+to prevent it from happening again.  THis matter needs to be addressed because Devon Allen's disqulification could be a problem that could continue to re-appear.  If athletes
 are reacting fast enough that the timing system thinks that they are reacting
 illegally fast, then World Athletics needs to address this and possibly change
-the minimum reaction time allowed.  Other papers have discussed track and field
-reaction times but not in the context of whether the minimum reaction time barrier
-is too low or whether or not timing systems were at fault.
+the minimum reaction time allowed.  Currently the barrier is 0.10 seconds, any time
+faster than this would result in a disqualification in the athlete who reacted too
+quickly and the race is restarted \citep{Seiko-Timing}.  Any athletes who false start are not given a second chance, they are removed from competition.  This can have massive implications as events like the Outdoor World Track and Field Championship only occur typically once every two years.  It is an opportunity for athletes to earn endorsement deals and prove to sponsors such as Nike and Adidas that
+they deserve a contract.  Thus the significance of a disqualification, especially in the finals of a major event such as the World Track and Field Championships, are very
+consequential.  
 
-One of the most interesting things found was that the reaction times from the USA
-athletes in the World Championship 110 meter hurdles, was that they were significantly
-faster than at the USA Track Championships.  From June 23-26 2022, USA held it's Track
-and Field Championship to decide who to send to the World Championships.  Thus, a baseline
-is able to be established for the four USA athletes who competed in at least one round
-of both events: Trey Cunningham, Daniel Roberts, Grant Holloway, and Devon Allen. Every
-athlete reacted faster in all of the World Track and Field Championship races compared
-to the USA Track and Field Championship races. Devon Allen raced three times at
-the USA Track and Field Championship and three times at the World Track and Field 
-Championship.  His reaction times were significantly faster in the World Track and
-Field Championship compared to the USA Track and Field Championship as were his
-teamates.  This comparison suggests that the timing system used between the two
-meets may have been meaningfully different to the point where Devon Allen was
-disqualified more because of faulty equipment rather than because he reacted
-too quickly.  This table below highlights the difference in reaction times for
-Devon Allen, Trey Cunningham, Grant Holloway, and Daniel Roberts. "USA" denotes
-the USA Track and Field Championships, "World" denotes the World Track and Field
-Championships, "H" denotes the heats/preliminary rounds of the 110 meter hurdles,
-"S" denotes the semifinals of the 110 meter hurdles, "F" denotes the finals of the
-110 meter hurdles.  "N/A" was used for any athlete that did not compete and thus
-did not register a reaction time.  All numbers listed in the table are the reaction
-time for the respective athletes in seconds.
+
+
+
+
 
 % \begin{figure}[H]
 %     \begin{center}
@@ -141,21 +129,7 @@ time for the respective athletes in seconds.
   
 % \end{figure}
 
-\begin{center}
-\begin{tabular}{||c | c c c | c c c||} 
- \hline
- Athlete & USA H & USA S & USA F & World H & World S & World F \\ [0.5ex] 
- \hline\hline
- Devon Allen & 0.201 & 0.153 & 0.160 & 0.123 & 0.101 & 0.099 \\ 
- \hline
- Trey Cunningham & 0.186 & 0.185 & 0.182 & 0.115 & 0.120 & 0.109 \\
- \hline
- Grant Holloway & 0.192 & 0.190 & N/A & 0.147 & 0.128 & 0.124 \\
- \hline
- Daniel Roberts & 0.181 & 0.200 & 0.183 & 0.179 & N/A & N/A \\ [0.5ex]
- \hline
-\end{tabular}
-\end{center}
+
 
 
 Additionally it is worth noting that in the semi-finals of the World Track and
@@ -206,59 +180,84 @@ time, and the predicting variables are year, stage of competition (heats,
 semifinal, final), total time, and gender.  The data can be found in the appendix:.  
 Factors such as name, country, and identification number were
 not considered important for the purposes of this research besides the times for
-Devon Allen and the other United States athletes mentioned above.  As the reaction
-times for men and women did not differ significantly, the results were pooled
-to allow for larger sample sizes, as the data from the finals of each year is
-typically very small (around 8 observations), so including men and women doubles
-the sample size per year.  This is also very useful because t tests are sometimes
-inconsistent and unreliable when the sample size is small.
+Devon Allen and the other United States athletes mentioned above.  The variable "Stage"
+refers to whether the observation occurred during the "heats" (Preliminary round) which
+is denoted by "H" in the data, "S" for "semifinals" (Of which there are either 2 or 3 heats each year), and "F" for finals. The variable "Gender" has levels "M" and "F" which
+stand for "male" and "female" respectively.  The variable "Batch" takes a numerical value and every heat of every round from 1999 to 2022 was assigned it's own number.  This
+was added because of suspected issues that reaction time may be correlated with other runners reacting quickly (one runner reacting quickly may result in other runners reacting quickly).
+
+One of the most interesting things found was that the reaction times from the USA
+athletes in the World Championship 110 meter hurdles, was that they were significantly
+faster than at the USA Track Championships.  From June 23-26 2022, USA held it's Track
+and Field Championship to decide who to send to the World Championships.  Thus, a baseline
+is able to be established for the four USA athletes who competed in at least one round
+of both events: Trey Cunningham, Daniel Roberts, Grant Holloway, and Devon Allen. Every
+athlete reacted faster in all of the World Track and Field Championship races compared
+to the USA Track and Field Championship races. Devon Allen raced three times at
+the USA Track and Field Championship and three times at the World Track and Field 
+Championship.  His reaction times were significantly faster in the World Track and
+Field Championship compared to the USA Track and Field Championship as were his
+teamates.  This comparison suggests that the timing system used between the two
+meets may have been meaningfully different to the point where Devon Allen was
+disqualified more because of faulty equipment rather than because he reacted
+too quickly.  This table below highlights the difference in reaction times for
+Devon Allen, Trey Cunningham, Grant Holloway, and Daniel Roberts. "USA" denotes
+the USA Track and Field Championships, "World" denotes the World Track and Field
+Championships, "N/A" was used for any athlete that did not compete and thus
+did not register a reaction time.  All numbers listed in the table are the reaction
+time for the respective athletes in seconds.
+
+\begin{center}
+  \begin{tabular}{||c | c c c | c c c||} 
+   \hline
+   Athlete & USA H & USA S & USA F & World H & World S & World F \\ [0.5ex] 
+   \hline\hline
+   Devon Allen & 0.201 & 0.153 & 0.160 & 0.123 & 0.101 & 0.099 \\ 
+   \hline
+   Trey Cunningham & 0.186 & 0.185 & 0.182 & 0.115 & 0.120 & 0.109 \\
+   \hline
+   Grant Holloway & 0.192 & 0.190 & N/A & 0.147 & 0.128 & 0.124 \\
+   \hline
+   Daniel Roberts & 0.181 & 0.200 & 0.183 & 0.179 & N/A & N/A \\ [0.5ex]
+   \hline
+  \end{tabular}
+  \end{center}
 
 
 \section{Methods}
 \label{sec:methods}
 The main purpose of this paper is to determine whether or not Devon Allen was
-unfairly disqualified because of his reaction time. By comparing the results from
-2022 to other years, we can hope to learn more about what causes athletes to react
-the way in which they do.  A very simple way to compare reaction time across the many
-years was to perform a Tukey's Honestly Significant Test to test all pairs of
-years against one another to see what years had reaction time data that differed
-significantly from another year.  Tukey's HSD performs a series of t tests, with
-each t test for one pair of years, with the reaction time being the variable of
-interest.  Tukey's HSD relies on the following assumptions: observations are
-idendependent amongst groups, groups are normally distributed, each group has
-homogenity of variance \citep{statistics}.
-Another important and slightly more complex
-method is to use a linear mixed effects model.  A LME model is used when there
-are groups that can cause an effect on the dependent variable when not properly
-detected.  For example, a scatterplot may show that increasing execerise
-increases the chance of a heart attack, but what is not shown is that age is a
-factor that affects how much people exericse and if older people exercise more
-and are more at risk for a heart attack, then it would incorrect to conclude
-that exercise is what is causing the heart attacks.  In this case, it would be said
-that there is an "age factor" associated with heart attacks that needs to be
-accounted for.
-In the paper, we need to determine if there is a year effect that can impact
-the reaction time.  In R, this can be accomplished with the lmer() function
-in the lme4 package.  Then, the LME model can be compared to see if it differs
-significantly from a model that just looks at whether there is a random effect
-of year on reaction time.  This can be done using the anova() function, which
-is used to compare different models.  We expect that there is a year effect,
-meaning that the anova test would produce a p value that is statistically
-significant.  It would not make sense to fit a traditional linear regression
-model to try and predict the reaction time based off the year, instead we want
-to stratify by year and look at the reaction time to see if there is a year
-effect in determining reaction time.
-The data used will primarily be the finals data because that is most relevant
-to Devon Allen's disqulification and because of differences in times compared
-to the semi-finals and heats.  In the finals, runners may be more nervous and
-have more adrenlaine and may be more "jumpy" which would cause them to be
-able to better react to the start of the gun, rather than in the preliminary
-rounds.
+unfairly disqualified because of his reaction time. 
+
+The main statistical model used in the paper is a gamma mixed effects model, which is
+in the family of Generalized Linear Mixed Model (GLMM).  A GLMM is a type of model that
+supports inputs that are from different distributions.  The model that we use is for the
+Gamma distribution for the fixed effects part of the model and a random effects part.  In
+the model used in the paper, the fixed effect comes in the form of an intercept, and then
+either a year effect, batch effect, or both are used.  Initially a linear mixed effects
+model was attempted to be implemented, but due to a right hand skew in the reaction times, a gamma distribution seemed better equipped to model the data (The right
+skew is not particularly suprising as it is not possible to register a reaction time below 0.0 seconds, resulting in a lower bound but no upper bound for outliers). In the code, the link parameter under Gamma() was changed to be "log" as logarithmic functions are better equipped to deal with high outliers. 
+
+There are several different data sets that could be used and explored in determining 
+whether or not Devon Allen was unjustly disqualified.  One of the best examples of this
+is the women's 100 meter hurdles. Although the distance of the race is 10 meters shorter
+than the men's race, the reaction time data is still important and can be used to
+essentially double the data size.  However, one of the largest issues with this is that on average, men are able to react quicker than women.  Thus the data may end up following
+a bimodal distribution which would be difficult to model and not helpful for determining
+if Devon Allen's reaction time was the result of a faulty system or if it is an argument
+for chaning the 0.10 second minimum barrier that currently exists.  Thus it was decided
+to look at men's and women's data separately.  Another decision that was made was to look
+at the data from the semifinals and finals together but from the heats or preliminary rounds.  The reason for this was because it was reasoned that in the finals athletes may
+be a little more anxious, more "jumpy" and that under stress and they would react faster.
+While the preliminary rounds also provide a bulk of the total observations, they are not
+as relevant to Allen's disqualification, which occured during the finals.
+%%%Include picture 
 
 
 
 \section{Conclusion}
 \label{sec:conclusion}
+%%%Need to discuss how the false start changed from 2007-2009
 The Tukey HSD performed on the finals data showed that across the many t tests it
 performed, 8 were signifcantly different of which 6 came from 2022 with the other
 two came from 2013 which was a high outlier on reaction time.  No other year had
